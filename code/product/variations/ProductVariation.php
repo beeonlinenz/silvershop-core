@@ -17,10 +17,10 @@ class ProductVariation extends DataObject implements Buyable
         'Price'          => 'Currency(19,4)',
 
         //physical properties
-        'Weight'    => 'Decimal(12,5)',
-        'Height'    => 'Decimal(12,5)',
-        'Width'     => 'Decimal(12,5)',
-        'Depth'     => 'Decimal(12,5)'
+        'Weight'    => 'Float',
+        'Height'    => 'Float',
+        'Width'     => 'Float',
+        'Depth'     => 'Float'
     );
 
     private static $has_one           = array(
@@ -371,7 +371,7 @@ class ProductVariation_OrderItem extends Product_OrderItem
     }
 
     public function Weight() {
-        if($this->ProductVariation()->Weight) {
+        if($this->ProductVariation()->Weight > 0) {
             return $this->ProductVariation()->Weight;
         }
         return $this->Product()->Weight;
