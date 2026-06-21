@@ -114,7 +114,7 @@ class ShopQuantityField extends ModelData
 
     public function forTemplate(): string
     {
-        return $this->renderWith($this->template)->forTemplate();
+        return (string) $this->renderWith($this->template)->forTemplate();
     }
 
     /**
